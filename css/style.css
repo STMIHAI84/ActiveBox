@@ -1,0 +1,821 @@
+ body {
+     margin: 0;
+
+     font-family: 'Raleway', sans-serif;
+     font-size: 14px;
+     color: #6c7279;
+     -webkit-font-smoothing: antialiased;
+     /*?*/
+
+     background-color: #fff;
+
+ }
+
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+     /**/
+ }
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     margin: 0;
+ }
+
+ p {
+     margin: 0 0 10px;
+ }
+
+ /*Container*/
+ /*===================*/
+ .container {
+     width: 100%;/*latime 100% dar maximum 1200px*/
+     /**/
+     max-width: 1200px;
+     margin: 0 auto;/*reglare pe centru*/
+     padding: 0 15px;/*
+     /* color: #1e1f20; */
+ }
+
+ /*Header
+ =============*/
+
+ .header {
+     width: 100%;
+     height: 100px;
+
+     position: absolute;
+     /*blocare pe loc*/
+     top: 0;
+     left: 0;
+     z-index: 1000;
+ }
+
+ /*LUCRAM CU CSS PENTRU JS */
+ .header.fixed {
+     height: auto;
+     position: fixed;
+     background-color: #31344e;
+ }
+
+ .header.fixed .header__inner {
+
+
+     padding-top: 15px;
+     padding-bottom: 15px;
+
+     border-bottom: 0;
+ }
+
+ /* PINA AICI */
+
+ .header__inner {
+     /*se asaza elementele in header*/
+     /*pozitionare elemente stinga-dreapta doar cu flex*/
+     display: flex;
+     justify-content: space-between;
+      /*spatiu de sus si jos*/
+     padding: 35px 0;
+    
+     align-items: center;
+      /* creem linia desubt */
+     border-bottom: 1px solid #515369;
+ }
+
+ /* Navigatin
+ ================= */
+
+ .nav {
+     display: flex;
+     font-size: 13px;
+     font-weight: 700;
+     text-transform: uppercase;
+ }
+
+ .nav__link {
+     color: #fff;
+     text-decoration: none;
+     margin-left: 50px;
+     opacity: .5;
+     transition: opacity .1s linear;
+
+ }
+
+ .nav__link:first-child {
+     /*primul element din 
+    meniul de navigatio*/
+     margin-left: 0;
+ }
+
+ .nav__link:hover {
+     opacity: 1;
+     transition: .1s;
+ }
+
+ /*Intro
+ =============*/
+
+ .intro {
+     /*fiecare element din rind nou*/
+     display: flex;
+     flex-direction: column;
+
+     justify-content: center;
+     height: 750px;
+     padding-top: 100px;
+
+     background: #31344e url("img/intro-bg.jpg") no-repeat center / cover;
+ }
+
+ .intro__inner {
+     width: 100%;
+     max-width: 970px;
+     margin: 0 auto;
+
+     text-align: center;
+ }
+
+ .intro__title {
+     margin: 0 0 30px;
+
+     font-family: 'Open Sans', sans-serif;
+     font-size: 65px;
+     line-height: 1.1;
+     color: #fff;
+     font-weight: 700;
+     text-transform: uppercase;
+
+ }
+
+ .intro__subtitle {
+     font-size: 22px;
+     color: #fff;
+     line-height: 1.5;
+     font-weight: 400;
+ }
+
+ /*Button
+ ============*/
+
+ .btn {
+     display: inline-block;
+     vertical-align: top;
+     padding: 14px 40px;
+
+     border-radius: 2px;
+     border: 0;
+     cursor: pointer;
+
+     font-family: inherit;
+     font-size: 16px;
+     color: #fff;
+     font-weight: 600;
+     text-transform: uppercase;
+     text-decoration: none;
+     text-align: center;
+     /*aliniere text in centru*/
+
+     transition: .1s;
+ }
+
+ .btn--red {
+     background-color: #e84545;
+
+ }
+
+ .btn--red:hover {
+     background-color: #dd3434;
+ }
+
+ .btn--long {
+     max-width: 280px;
+ }
+
+ /*Features
+ ================*/
+
+ .features {
+     display: flex;
+     flex-wrap: wrap;
+     margin: 100px 0;
+ }
+
+ .features__items {
+     width: 33.33333%;
+     padding: 0 40px;
+     margin: 30px 0;
+
+     text-align: center;
+ }
+
+ .features__icon {
+     margin-bottom: 20px;
+ }
+
+ .features__title {
+     font-size: 14px;
+     color: #2d3033;
+     font-weight: 700;
+     text-transform: uppercase;
+     margin-bottom: 15px;
+
+ }
+
+ .featurtes__text {
+     font-size: 14px;
+     line-height: 1.5;
+     color: #6c7279;
+ }
+
+ /* Works
+ ============= */
+
+ .works {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .works__item {
+     width: 25%;
+     height: 350px;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .works__item:hover .works__content {
+     opacity: 1;
+ }
+
+ .works__photo {
+     /*pozele vor okupa tot continutul daca sint mai mici*/
+     min-width: 100%;
+
+     position: absolute;
+
+     top: 50%;
+     left: 50%;
+     z-index: 1;
+
+     transform: translate3d(-50%, -50%, 0);
+ }
+
+ .works__content {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     position: absolute;
+
+     width: 100%;
+     height: 100%;
+
+     opacity: 0;
+
+     text-align: center;
+
+     background-color: rgba(232, 69, 69, .9);
+     top: 0;
+     left: 0;
+     z-index: 2;
+
+     transition: opacity .2s linear;
+ }
+
+ .works__title {
+     margin-bottom: 5px;
+
+     font-size: 14px;
+     font-weight: 700;
+     color: #fff;
+     text-transform: uppercase;
+ }
+
+ .works__text {
+     font-size: 14px;
+     font-weight: 700;
+     color: #fff;
+ }
+
+ /* Team
+ =================== */
+
+ .team {
+     margin: 100px 0 70px;
+ }
+
+ .team__inner {
+     display: flex;
+     flex-wrap: wrap;
+     margin: 0 -15px;
+ }
+
+ .team__item {
+     width: 25%;
+     margin-bottom: 30px;
+ }
+
+ .team__photo {
+     display: block;
+     max-width: 100%;
+     height: auto;
+     margin-bottom: 30px;
+ }
+
+ .team__name {
+     margin-bottom: 8px;
+     font-size: 22px;
+     color: #2d3033;
+ }
+
+ .team__prof {
+     font-size: 13px;
+     margin-bottom: 15px;
+     color: #e84545;
+     text-transform: uppercase;
+ }
+
+ .team__text {
+     font-size: 14px;
+     line-height: 1.5;
+     color: #6c7279;
+     margin-bottom: 20px;
+ }
+
+ /*  Social
+ ================ */
+ .social {
+     display: flex;
+ }
+
+ .social--footer {
+     justify-content: center;
+ }
+
+ .social__item {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 40px;
+     height: 40px;
+     margin-right: 4px;
+
+     border: 1px solid #e8ecee;
+
+     transition: background .1s linear;
+ }
+
+ .social--footer .social__item {
+     background: none;
+     border-width: 2px;
+     border-color: #fff;
+     border-radius: 2px;
+ }
+
+ .social__item:hover {
+     background-color: #e8ecee;
+ }
+
+ .social__item:hover .social__icon {
+     fill: #080809;
+ }
+
+
+ .social__icon {
+     display: block;
+     height: 18px;
+
+     fill: #797979;
+     transition: fill .1s linear;
+ }
+
+ .social--footer .social__icon {
+     fill: #fff
+ }
+
+ /* Reviews 
+ ======================= */
+ .reviews {
+     overflow: hidden;
+     background-color: #53354a;
+ }
+
+ .reviews__slider {
+     height: 500px;
+     overflow: hidden;
+ }
+ .reviews__slider.slick-initialized{
+     height: auto;
+ }
+
+ .reviews__item {
+     display: flex;
+     flex-wrap: wrap;
+     overflow: hidden;
+ }
+
+ .reviews__photo {
+     width: 50%;
+     height: 500px;
+     position: relative;
+ }
+
+ .reviews__img {
+     position: absolute;
+     top: 50%;
+     right: 0;
+     z-index: 1;
+
+     transform: translateY(-50%);
+ }
+
+ .reviews__content {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     width: 50%;
+     padding-left: 80px;
+ }
+
+ .reviews__text {
+     margin-bottom: 30px;
+     font-family: 'Cardo', sans-serif;
+     font-style: italic;
+     font-size: 30px;
+     line-height: 1.2;
+     color: #fff;
+ }
+
+ .reviews__author {
+     font-size: 13px;
+     font-weight: 700;
+     text-transform: uppercase;
+     color: #fff;
+ }
+
+ .slick-dots {
+     display: flex;
+     /*alin pe orizont*/
+     /* justify-content: center; */
+
+     margin: 0;
+     padding: 0 0 10px;
+     list-style: none;
+     width: 50%;
+
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     z-index: 2;
+ }
+
+ .slick-dots li {
+     margin: 0 5px;
+ }
+
+ .slick-dots button {
+     width: 10px;
+     height: 10px;
+
+     background: #fff;
+     border-radius: 50%;
+     /*margini rotunde(cerc)*/
+     border: 0;
+     padding: 0;
+     opacity: .5;
+     /*buttonul neactiv*/
+     cursor: pointer;
+     /*pentru a transforma sagiata in miina*/
+
+     font-size: 0;
+     color: transparent;
+
+ }
+
+ .slick-dots .slick-active button {
+     opacity: 1;
+     /*butonul activ*/
+ }
+
+ /* Download
+ ================= */
+
+ .download {
+     margin: 90px 0;
+
+     text-align: center;
+ }
+
+ .download__title {
+     font-size: 28px;
+     color: #2d3033;
+     font-weight: 300;
+ }
+
+ .download__text {
+     margin-bottom: 30px;
+
+     font-size: 13px;
+     color: #2d3033;
+     font-weight: 700;
+     text-transform: uppercase;
+ }
+
+
+ /* footer
+ =============== */
+
+ .footer {
+     background-color: #3a3e64
+ }
+
+ .footer__inner {
+     padding: 50px 0 70px;
+
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .footer__block {
+     width: 33.33333%;
+     padding: 30px;
+
+     text-align: center;
+ }
+
+ .footer__title {
+     font-size: 14px;
+     font-weight: 700px;
+     margin-bottom: 10px;
+     color: #fff;
+     text-transform: uppercase;
+ }
+
+ .footer__address {
+     font-size: 14px;
+     line-height: 1.5;
+     font-style: normal;
+     color: rgba(255, 255, 255, .5)
+ }
+
+ .footer__text {
+     font-size: 14px;
+     line-height: 1.5;
+     font-style: normal;
+     color: rgba(255, 255, 255, .5)
+ }
+
+ /* Copyright
+ ==================== */
+
+ .copyright {
+     background-color: #313454;
+
+     padding: 20px 0;
+ }
+
+ .copyright__text {
+     text-align: center;
+     font-size: 14px;
+     line-height: 1.5;
+     color: rgba(255, 255, 255, .5)
+ }
+
+ .span {
+     color: #fff;
+ }
+
+ .heart {
+     color: rgba(236, 22, 22, 0.5)
+ }
+
+ /*Burger
+=============*/
+ .burger {
+     display: none;
+     padding: 9px 2px;
+
+     background: none;
+     border: 0;
+     /*parginile elementului*/
+     cursor: pointer;
+
+ }
+
+ .burger__item {
+     display: block;
+     width: 30px;
+     /*latime*/
+     height: 3px;
+     /*innaltime*/
+
+     background-color: #fff;
+     /*fonul*/
+
+     font-size: 0;
+     /*marimea sriftului*/
+     color: transparent;
+     /*culoare text*/
+
+     position: relative;
+     /*pozitionare element parinte*/
+
+ }
+
+ /*pseudo elemente*/
+ .burger__item:before,
+ .burger__item:after {
+     content: "";
+     /**/
+     width: 100%;
+     /*latime*/
+     height: 100%;
+     /*innaltime*/
+
+     background-color: #fff;
+
+     position: absolute;
+     /*pozitionare element copil in raport cu parinte*/
+     left: 0;
+     /*lipim elementul spre stinga*/
+     z-index: 1;
+     /*se pozitioneaza deasupra*/
+ }
+
+ .burger__item:before {
+     top: -8px;
+ }
+
+ .burger__item:after {
+     bottom: -8px;
+ }
+
+ /*mai jos adaptam codul css pentru diferite ecrane*/
+ /* Media
+================ */
+ @media(max-width:1300px) {
+
+     .features__items {
+         width: 50%
+     }
+ }
+
+ @media(max-width:991px) {
+
+     /*  Nav  */
+     .nav {
+         display: none;
+         width: 100%;
+         flex-direction: column;
+
+         background-color: #31344e;
+         text-align: right;
+
+         position: absolute;
+
+         top: 100%;
+         right: 0;
+     }
+
+     .nav.show {
+         display: flex;
+     }
+
+     .nav__link {
+         padding: 9px 15px;
+     }
+
+     .burger {
+         display: block;
+     }
+
+     .intro__title {
+         font-size: 40px;
+     }
+
+     /*Features*/
+     .works__item {
+         width: 50%;
+     }
+
+     .team__item {
+         width: 50%;
+         text-align: center;
+     }
+
+     /*setam poza pe centru*/
+
+     .team__photo {
+         margin-left: auto;
+         margin-right: auto;
+     }
+
+     .team__text {
+         margin: 0 40px;
+     }
+
+     .social {
+         justify-content: center;
+
+     }
+
+     /*se muta elementele unul sub altul*/
+
+     .reviews__photo {
+         width: 100%;
+         margin: 0 0 40px;
+     }
+
+     .reviews__content {
+         width: 100%;
+         padding: 0 0 40px 20px;
+     }
+
+     .reviews__img {
+         margin-right: -15px;
+     }
+
+ }
+
+
+ @media (max-width:767px) {
+     .burger {
+         display: block;
+     }
+
+     .intro {
+         height: auto;
+         padding-top: 130px;
+         padding-bottom: 30px;
+     }
+
+     .intro__title {
+         font-size: 30px;
+
+     }
+
+     .intro__subtitle {
+         font-size: 16px;
+     }
+
+     .features {
+         margin-top: 0;
+     }
+
+     .features__items {
+
+         width: 100%;
+         margin: 10px;
+         padding-left: 0;
+         /*spatiu intre element si margine dreapte*/
+         padding-right: 0;
+         /*spatiu stinga*/
+
+     }
+
+     .works__item {
+         width: 100%;
+     }
+
+     .team {
+         margin: 60px 0 30px;
+     }
+
+     .team__item {
+         width: 100%;
+     }
+
+     .reviews__content {
+         width: 100%;
+         padding: 10px 0 40px;
+     }
+
+     .reviews__text {
+         font-size: 25px;
+     }
+
+     .download {
+         margin: 50px 0;
+     }
+
+     .footer__inner {
+         padding: 10px 0;
+     }
+
+     .footer__block {
+         width: 100%;
+         padding: 20px;
+     }
+
+ }
+
+ @media (max-width:414px) {
+
+     .reviews__img {
+         right: -100px;
+
+     }
+ }
